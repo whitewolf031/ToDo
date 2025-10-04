@@ -8,5 +8,4 @@ router.register(r"todo", UserTodo, basename="Todo")
 
 urlpatterns = [
     path("", include(router.urls))
-    
 ]
