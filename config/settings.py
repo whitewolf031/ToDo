@@ -21,7 +21,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'todo',
     "api",
-    "users"
+    "users",
+    "common"
 ]
 
 INSTALLED_APPS += [
@@ -129,6 +130,9 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.MultiPartParser',
         'rest_framework.parsers.FileUploadParser',
     ],
+
+    'DEFAULT_PAGINATION_CLASS': 'common.pagination.BasePagination',
+    'PAGE_SIZE': 20,
 
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }

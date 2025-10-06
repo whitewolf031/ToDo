@@ -5,10 +5,11 @@ from .serializers import *
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from common.pagination import *
 
 class UserTodo(viewsets.ModelViewSet):
-    # queryset = Todo.objects.all()
     permission_classes = [IsAuthenticated]
+    pagination_class = BasePagination
 
     def get_queryset(self):
         return Todo.objects.filter(user=self.request.user)
